@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-12">
+          <h1>{{title}}</h1>
+          <app-add-note (addPage)="addNewPage($event)" ></app-add-note>
+<div class="ddisplay">
+
+          <app-pages-card *ngFor="let page of pages; let i = index"
+                          [newPage]="page"
+                          (noteDelete)="onDeletePage(i)"
+                          (noteEdit)="onEditNote()"></app-pages-card>
+</div>
+    </div>
+
+</div>
+</div>

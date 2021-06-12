@@ -1,0 +1,31 @@
+<div class="card col-sm mb-2" style="width: 15rem;" *ngIf="status==false; else edit">
+  <div class="card-body">
+  <h5 class="card-title"> {{newPage.id}} {{newPage.header}}</h5>
+    <hr/>
+    <p class="card-text">{{newPage.text}}</p>
+
+  <input type="button" value="Удалить" (click)="deletePage()" class="btn.btn-primary mb-3 w-75">
+  <p><input type="button" value="Редактировать" (click)="onEditNote()" class="btn.btn-primary mb-3  w-75"></p>
+    <p>{{newPage.date|date:'dd.MM.yy H:mm'}}</p>
+  </div>
+</div>
+
+<ng-template  #edit>
+  <div class="pt-5">
+    <p><input type="text"   id="inputt" name="notetitle" class="form-control w-50" [(ngModel)]="newPage.header"></p>
+    <p><textarea name="maintext" id="1" cols="30" rows="10" class="maintext  w-50" [(ngModel)]="newPage.text"></textarea></p>
+    <p>{{newPage.date|date:'dd.MM.yy H:mm'}}</p>
+    <p><input type="button" value="Сохранить" (click)="onEditNote()" class="btn.btn-primary mb-3"></p>
+  </div>
+</ng-template>
+
+
+<!--<div *ngFor="let notes of pages; let i = index" class="card col-sm mb-2" style="width: 15rem;">-->
+<!--  <div class="card-body">-->
+<!--    <h5 class="card-title">Заметка {{ i}} {{ pages[i].header}}</h5>-->
+<!--    <p class="card-text">{{pages[i].text}}</p>-->
+<!--    <input type="button" value="Удалить" (click)="delete(i)" class="btn.btn-primary mb-3">-->
+<!--    <p>{{pages[i].date|date:'medium'}}</p>-->
+
+<!--  </div>-->
+<!--</div>-->
